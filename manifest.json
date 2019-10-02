@@ -1,0 +1,17 @@
+{
+    "name": "site_blocker",
+    "version": "0.1",
+    "description": "sample",
+    "permissions": [
+      "clipboardWrite",
+      "activeTab"
+    ],
+    "background":  {
+      "scripts": ["background.js"],
+      "persistant": false
+    },
+    "browser_action": {
+        "name": "Copy"
+    },
+    "manifest_version": 2
+}
