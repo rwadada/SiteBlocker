@@ -1,9 +1,19 @@
-window.onload = function () {
-    chrome.tabs.getSelected(window.id, function (tab) {
-        //tab.urlに開いているタブのURLが入っている
-        var url = document.createTextNode(tab.url);
-        if (url.startWith("https://youtube.com/")) {
-            window.alert("仕事しろ！")
-        }
+var isFirstTime = true
+
+chrome.tabs.onUpdated.addListener(function () {
+    chrome.tabs.getSelected(tab => {  // 現在のタブを取得
+        let url = tab.url.toString()
+        let sites = ["https://www.youtube.com/"]
+
+        sites.forEach(function (value) {
+            if (url.startsWith(value)) {
+                if (isFirstTime) {
+                    window.alert("仕事しろやん")
+                    isFirstTime = false
+                }
+            } else {
+                isFirstTime = true
+            }
+        })
     });
-}
+})
