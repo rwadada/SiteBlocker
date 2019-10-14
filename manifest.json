@@ -14,5 +14,8 @@
       "background.js"
     ]
   },
+  "options_ui": {
+    "page": "option.html"
+  },
   "manifest_version": 2
 }
